@@ -1,0 +1,30 @@
+﻿# 1. 데이터베이스(MySQL) 연결 설정
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tbti_db?serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false
+    username: root
+    password: 1234
+
+  # 2. JPA(ORM) 설정
+  # 개발 완료 후 DB 스키마가 이미 생성되어 있다고 가정, 앱 실행 시 스키마 일치 여부만 'validate' 검증
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+# 3. 보안 설정(JWT)의 키와 만료 시간
+jwt:
+  # 토큰 서명에 사용할 비밀키
+  secret: okmijnuhbygvtfcrdxesz
+  # 토큰 만료 시간(밀리초 단위, 기본 만료 24시간)
+  expirationtime: 86400000
+
+# 4. Bored API 및 외부 API 서버 포트 설정
+server:
+  port: 8080
