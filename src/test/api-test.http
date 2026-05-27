@@ -1,0 +1,54 @@
+### 1. 회원가입 - 정상
+POST http://localhost:8080/api/users/signup
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "1234",
+  "nickname": "테스터"
+}
+
+###
+
+### 2. 회원가입 - username 중복 (400 응답 확인)
+POST http://localhost:8080/api/users/signup
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "5678",
+  "nickname": "중복유저"
+}
+
+###
+
+### 3. 로그인 - 정상 (JWT 토큰 확인)
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "1234"
+}
+
+###
+
+### 4. 로그인 - 틀린 비밀번호 (400 응답 확인)
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "wrongpassword"
+}
+
+###
+
+### 5. 로그인 - 존재하지 않는 유저 (400 응답 확인)
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "username": "nouser",
+  "password": "1234"
+}
