@@ -21,7 +21,7 @@ spring:
 # 3. 보안 설정(JWT)의 키와 만료 시간
 jwt:
   # 토큰 서명에 사용할 비밀키
-  secret: okmijnuhbygvtfcrdxesz
+  secret: qwertyuiopasdfghjklzxcvbnmqwerty
   # 토큰 만료 시간(밀리초 단위, 기본 만료 24시간)
   expirationtime: 86400000
 
